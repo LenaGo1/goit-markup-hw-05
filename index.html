@@ -61,9 +61,10 @@
             для вашего бизнеса
           </h1>
 
-          <a href="" class="button">Заказать услугу</a>
+          <button class="button" data-open-modal>Заказать услугу</button>
         </div>
       </section>
+
       <!--особенности-->
       <section class="section features">
         <div class="container">
@@ -77,9 +78,6 @@
               </p>
             </li>
             <li class="feature clock">
-              <!-- <div class="feature-image">
-                <img class="svg-image" src="images/clock1.svg" alt="часы" />
-              </div> -->
               <h3 class="title feature-title">Пунктуальность</h3>
               <p class="feature-description">
                 Задача организации, в особенности же рамки и место обучения
@@ -87,13 +85,6 @@
               </p>
             </li>
             <li class="feature diagram">
-              <!-- <div class="feature-image">
-                <img
-                  class="svg-image"
-                  src="images/diagram1.svg"
-                  alt="диаграмма"
-                />
-              </div> -->
               <h3 class="title feature-title">Планирование</h3>
               <p class="feature-description">
                 Равным образом консультация с широким активом в значительной
@@ -101,13 +92,6 @@
               </p>
             </li>
             <li class="feature astronaut">
-              <!-- <div class="feature-image">
-                <img
-                  class="svg-image"
-                  src="images/astronaut1.svg"
-                  alt="астронавт"
-                />
-              </div> -->
               <h3 class="title feature-title">Современные технологии</h3>
               <p class="feature-description">
                 Значимость этих проблем настолько очевидна, что реализация
@@ -455,5 +439,29 @@
         </div>
       </div>
     </footer>
+    <div class="backdrop is-hidden" data-backdrop>
+      <div class="modal">
+        <!-- <button aria-label="Закрыть" class="close-button"> -->
+        <a href="" class="close-link" data-close-modal
+          ><svg width="30" height="30" class="close-icon">
+            <use href="./images/symbol-defs.svg#icon-close"></use></svg
+        ></a>
+        <!-- </button> -->
+      </div>
+    </div>
+    <script>
+      const refs = {
+        openModalBtn: document.querySelector("[data-open-modal]"),
+        closeModalBtn: document.querySelector("[data-close-modal]"),
+        modal: document.querySelector("[data-backdrop]"),
+      };
+
+      refs.openModalBtn.addEventListener("click", toggleModal);
+      refs.closeModalBtn.addEventListener("click", toggleModal);
+
+      function toggleModal() {
+        refs.modal.classList.toggle("is-hidden");
+      }
+    </script>
   </body>
 </html>
